@@ -1,0 +1,11 @@
+[project]
+name = "src"
+version = "0.0.1"
+description = "An Data Science and MLOps project for productionizing models for Car insurance Company"
+authors = [{name = "Adeel Hamid", email = "vikashdas770@gmail.com"}]
+
+[tool.setuptools]
+packages = {find = {}}
+
+[tool.setuptools.dynamic]
+dependencies = {file = "requirements.txt"}
