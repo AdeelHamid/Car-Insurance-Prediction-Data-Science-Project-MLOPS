@@ -47,7 +47,7 @@ Data Transformation related constants start with DATA_TRANSFORMATION_VAR_NAME
 """
 DATA_TRANSFORMATION_DIR_NAME: str = "data_transformation"
 DATA_TRANSFORMATION_TRANSFORMED_DATA_DIR: str = "transformed"
-DATA_TRANSFORMATOIN_TRANSFORMED_OBJECT_DIR: str = "transformed_object"
+DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR: str = "transformed_object"
 
 """ 
 Model Trainer related constants start with MODEL_TRAINER_VAR_NAME
