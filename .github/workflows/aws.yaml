@@ -3,7 +3,7 @@ name: Deploy Application Docker Image to EC2 instance
 on:
   push:
     branches: [main]
-
+# jobs to run on the push event
 jobs:
   Continuous-Integration:
     runs-on: ubuntu-latest
