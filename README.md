@@ -20,6 +20,8 @@ This project is designed to **Showcase expertise to recruiters, hiring managers,
 
 ---
 
+Reach out to me at adeel.hamid50@gmail.com
+
 ## 📂 Project Workflow
 
 ### 🔧 1. Environment & Project Setup
