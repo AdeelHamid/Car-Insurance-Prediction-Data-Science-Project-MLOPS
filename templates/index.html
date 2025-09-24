@@ -3,126 +3,217 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vehicle Insurance Prediction</title>
-    <!-- Corrected the CSS path -->
+    <title>Car Insurance Prediction</title>
+    <!-- Link to the updated CSS file -->
     <link rel="stylesheet" href="/static/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
   </head>
   <body>
     <div class="container">
-      <h1>Vehicle Insurance Prediction</h1>
+      <div class="header">
+        <h1>
+          <i class="fas fa-car-crash"></i> Car Insurance Prediction - MLOPS
+          (DATA SCIENCE)
+        </h1>
+        <p>
+          Fill out the form below to get a prediction on "Will user buy your
+          insurance or not?".
+        </p>
+      </div>
 
-      <form method="post" action="/">
-        <label for="Gender">Gender (1: Male, 0: Female):</label>
+      <form method="post" action="/" class="form-grid">
+        <!-- Gender Input (Dropdown) -->
+        <div class="form-group">
+          <label for="Gender">Gender:</label>
+          <select id="Gender" name="Gender" required>
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+          </select>
+        </div>
+
+        <!-- Age Input -->
+        <div class="form-group">
+          <label for="Age">Age:</label>
+          <input type="number" id="Age" name="Age" required />
+        </div>
+
+        <!-- Driving License (Radio Buttons) -->
+        <div class="form-group">
+          <label>Driving License:</label>
+          <div class="radio-group">
+            <input
+              type="radio"
+              id="Driving_License_Yes"
+              name="Driving_License"
+              value="1"
+              required
+            />
+            <label for="Driving_License_Yes">Yes</label>
+            <input
+              type="radio"
+              id="Driving_License_No"
+              name="Driving_License"
+              value="0"
+              required
+            />
+            <label for="Driving_License_No">No</label>
+          </div>
+        </div>
+
+        <!-- Region Code Input -->
+        <div class="form-group">
+          <label for="Region_Code">Region Code:</label>
+          <input
+            type="number"
+            step="0.01"
+            id="Region_Code"
+            name="Region_Code"
+            required
+          />
+        </div>
+
+        <!-- Previously Insured (Radio Buttons) -->
+        <div class="form-group">
+          <label>Previously Insured:</label>
+          <div class="radio-group">
+            <input
+              type="radio"
+              id="Previously_Insured_Yes"
+              name="Previously_Insured"
+              value="1"
+              required
+            />
+            <label for="Previously_Insured_Yes">Yes</label>
+            <input
+              type="radio"
+              id="Previously_Insured_No"
+              name="Previously_Insured"
+              value="0"
+              required
+            />
+            <label for="Previously_Insured_No">No</label>
+          </div>
+        </div>
+
+        <!-- Annual Premium Input -->
+        <div class="form-group">
+          <label for="Annual_Premium">Annual Premium:</label>
+          <input
+            type="number"
+            step="0.01"
+            id="Annual_Premium"
+            name="Annual_Premium"
+            required
+          />
+        </div>
+
+        <!-- Policy Sales Channel Input -->
+        <div class="form-group">
+          <label for="Policy_Sales_Channel">Policy Sales Channel:</label>
+          <input
+            type="number"
+            step="0.01"
+            id="Policy_Sales_Channel"
+            name="Policy_Sales_Channel"
+            required
+          />
+        </div>
+
+        <!-- Vintage Input -->
+        <div class="form-group">
+          <label for="Vintage">Vintage:</label>
+          <input type="number" id="Vintage" name="Vintage" required />
+        </div>
+
+        <!-- Vehicle Age (Dropdown with auto-setting) -->
+        <div class="form-group">
+          <label for="Vehicle_Age">Vehicle Age:</label>
+          <select id="Vehicle_Age" name="Vehicle_Age" required>
+            <option value="0">1-2 Years</option>
+            <option value="1">Less than 1 Year</option>
+            <option value="2">More than 2 Years</option>
+          </select>
+        </div>
+
+        <!-- Hidden inputs to handle the "Vehicle Age" logic for the back-end -->
         <input
-          type="number"
-          id="Gender"
-          name="Gender"
-          min="0"
-          max="1"
-          required
-        />
-
-        <label for="Age">Age:</label>
-        <input type="number" id="Age" name="Age" required />
-
-        <label for="Driving_License">Driving License (0: No, 1: Yes):</label>
-        <input
-          type="number"
-          id="Driving_License"
-          name="Driving_License"
-          min="0"
-          max="1"
-          required
-        />
-
-        <label for="Region_Code">Region Code:</label>
-        <input
-          type="number"
-          step="0.01"
-          id="Region_Code"
-          name="Region_Code"
-          required
-        />
-
-        <label for="Previously_Insured"
-          >Previously Insured (0: No, 1: Yes):</label
-        >
-        <input
-          type="number"
-          id="Previously_Insured"
-          name="Previously_Insured"
-          min="0"
-          max="1"
-          required
-        />
-
-        <label for="Annual_Premium">Annual Premium:</label>
-        <input
-          type="number"
-          step="0.01"
-          id="Annual_Premium"
-          name="Annual_Premium"
-          required
-        />
-
-        <label for="Policy_Sales_Channel">Policy Sales Channel:</label>
-        <input
-          type="number"
-          step="0.01"
-          id="Policy_Sales_Channel"
-          name="Policy_Sales_Channel"
-          required
-        />
-
-        <label for="Vintage">Vintage:</label>
-        <input type="number" id="Vintage" name="Vintage" required />
-
-        <label for="Vehicle_Age_lt_1_Year"
-          >Vehicle Age < 1 Year (0: No, 1: Yes):</label
-        >
-        <input
-          type="number"
+          type="hidden"
           id="Vehicle_Age_lt_1_Year"
           name="Vehicle_Age_lt_1_Year"
-          min="0"
-          max="1"
-          required
+          value="0"
         />
-
-        <label for="Vehicle_Age_gt_2_Years"
-          >Vehicle Age > 2 Years (0: No, 1: Yes):</label
-        >
         <input
-          type="number"
+          type="hidden"
           id="Vehicle_Age_gt_2_Years"
           name="Vehicle_Age_gt_2_Years"
-          min="0"
-          max="1"
-          required
+          value="0"
         />
 
-        <label for="Vehicle_Damage_Yes">Vehicle Damage (0: No, 1: Yes):</label>
-        <input
-          type="number"
-          id="Vehicle_Damage_Yes"
-          name="Vehicle_Damage_Yes"
-          min="0"
-          max="1"
-          required
-        />
+        <!-- Vehicle Damage (Radio Buttons) -->
+        <div class="form-group">
+          <label>Vehicle Damage:</label>
+          <div class="radio-group">
+            <input
+              type="radio"
+              id="Vehicle_Damage_Yes"
+              name="Vehicle_Damage_Yes"
+              value="1"
+              required
+            />
+            <label for="Vehicle_Damage_Yes">Yes</label>
+            <input
+              type="radio"
+              id="Vehicle_Damage_No"
+              name="Vehicle_Damage_Yes"
+              value="0"
+              required
+            />
+            <label for="Vehicle_Damage_No">No</label>
+          </div>
+        </div>
 
-        <button type="submit">Predict</button>
+        <!-- Submit Button -->
+        <div class="full-width">
+          <button type="submit" class="predict-button">Predict</button>
+        </div>
       </form>
 
-      <form method="get" action="/train">
-        <button type="submit" class="train-button">Train Model</button>
-      </form>
+      <!-- Train Model and Result Display -->
+      <div class="actions">
+        <form method="get" action="/train" class="train-form">
+          <button type="submit" class="train-button">Train Model</button>
+        </form>
 
-      {% if context %}
-      <div class="result">
-        <h2>Result: {{ context }}</h2>
+        {% if context %}
+        <div class="result">
+          <h2>Result: {{ context }}</h2>
+        </div>
+        {% endif %}
       </div>
-      {% endif %}
     </div>
+    <script>
+      document
+        .getElementById("Vehicle_Age")
+        .addEventListener("change", function () {
+          const ageDropdown = this.value;
+          const lt1Input = document.getElementById("Vehicle_Age_lt_1_Year");
+          const gt2Input = document.getElementById("Vehicle_Age_gt_2_Years");
+
+          if (ageDropdown === "1") {
+            lt1Input.value = "1";
+            gt2Input.value = "0";
+          } else if (ageDropdown === "2") {
+            lt1Input.value = "0";
+            gt2Input.value = "1";
+          } else {
+            // For "1-2 Years" option, both are 0
+            lt1Input.value = "0";
+            gt2Input.value = "0";
+          }
+        });
+    </script>
   </body>
 </html>
