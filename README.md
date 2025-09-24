@@ -16,7 +16,7 @@ A **production-ready end-to-end MLOps pipeline** for vehicle data, showcasing be
 - 🚀 **Prediction pipeline with FastAPI/Flask**
 - 🐳 **Dockerization & CI/CD with GitHub Actions & AWS EC2/ECR**
 
-This project is designed to **impress recruiters, hiring managers, and collaborators** by demonstrating modern MLOps workflows.
+This project is designed to **Showcase expertise to recruiters, hiring managers, and collaborators** by demonstrating modern MLOps workflows.
 
 ---
 
